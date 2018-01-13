@@ -20,6 +20,7 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 6
+
   },
   tokens: [{
     access: {
@@ -30,8 +31,12 @@ var UserSchema = new mongoose.Schema({
       type: String,
       required: true
     }
-  }]
+  }],
+}, {
+  usePushEach: true
 });
+
+
 
 UserSchema.methods.toJSON = function () {
   var user = this;
